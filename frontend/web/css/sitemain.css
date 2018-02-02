@@ -1,0 +1,39 @@
+/* ШРИФТЫ */
+h1.slederfon /*Заголовок разделов основной*/
+{
+    font-family: bebas_neue;
+    font-size: 36pt;
+    padding-bottom: 40px;
+    color: #fff;
+}
+
+h2.sliderfon	/*Заголовок расшифровка под разделами*/
+{
+    font-family: CondLightFree;
+    font-size: 20pt;
+    padding-bottom: 20px;
+    color: #fff;
+}
+
+/*фоновое для шапки сайта*/
+.indextopslide {
+    width: 100%;
+    -moz-background-size: 100%; /* Firefox 3.6+ */
+    -webkit-background-size: 100%; /* Safari 3.1+ и Chrome 4.0+ */
+    -o-background-size: 100%; /* Opera 9.6+ */
+    background-size: 100%; /* Современные браузеры */
+    background-attachment: fixed;
+    background-position: center center;
+    /*border-top: 1px solid #e4e4e4;*/
+    height: 100vh;
+    text-align: center;
+    vertical-align: bottom;
+    display: flex;
+}
+
+.inner {
+/*    width: 100px;*/
+    margin: auto;
+}
+
+

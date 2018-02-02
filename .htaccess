@@ -1,0 +1,53 @@
+<IfModule mod_rewrite.c>
+    Options +FollowSymlinks
+    RewriteEngine On
+</IfModule>
+<IfModule mod_rewrite.c>
+    # если /admin, то в backend
+    RewriteCond %{REQUEST_URI} ^/(erp)
+    RewriteRule ^erp/assets/(.*)$ backend/web/assets/$1 [L]
+    RewriteRule ^erp/css/(.*)$ backend/web/css/$1 [L]
+    RewriteRule ^erp/js/(.*)$ backend/web/js/$1 [L]
+    RewriteRule ^erp/libs/(.*)$ backend/web/libs/$1 [L]
+    RewriteRule ^erp/img/(.*)$ backend/web/img/$1 [L]
+    RewriteRule ^erp/plugins/(.*)$ backend/web/plugins/$1 [L]
+    RewriteCond %{REQUEST_URI} !^/backend/web/(assets|js|css|img)/
+    RewriteCond %{REQUEST_URI} ^/(erp)
+    RewriteRule ^.*$ backend/web/index.php [L]
+
+    RewriteCond %{REQUEST_URI} ^/(assets|css|js|img)
+    RewriteRule ^assets/(.*)$ frontend/web/assets/$1 [L]
+    RewriteRule ^css/(.*)$ frontend/web/css/$1 [L]
+    RewriteRule ^js/(.*)$ frontend/web/js/$1 [L]
+    RewriteRule ^img/(.*)$ frontend/web/img/$1 [L]
+    RewriteRule ^(.*)$ frontend/web/$1 [L]
+    RewriteCond %{REQUEST_URI} !^/(frontend|backend)/web/(assets|css|js)/
+    RewriteCond %{REQUEST_URI} !index.php
+    RewriteCond %{REQUEST_FILENAME} !-f [OR]
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^.*$ frontend/web/index.php
+</IfModule>
+
+#Options +FollowSymLinks
+#IndexIgnore */*
+#RewriteEngine on
+
+# Если запрос начинается с /erp, то заменяем на /backend/web/
+#RewriteCond %{REQUEST_URI} ^/erp
+#RewriteRule ^erp\/?(.*) /backend/web/$1
+
+# Добавляем другой запрос /frontend/web/$1
+#RewriteCond %{REQUEST_URI} !^/(frontend/web|backend/web|erp)
+#RewriteRule (.*) /frontend/web/$1
+
+# Если frontend запрос
+#RewriteCond %{REQUEST_URI} ^/frontend/web
+#RewriteCond %{REQUEST_FILENAME} !-f
+#RewriteCond %{REQUEST_FILENAME} !-d
+#RewriteRule . /frontend/web/index.php
+
+# Если backend запрос
+#RewriteCond %{REQUEST_URI} ^/backend/web
+#RewriteCond %{REQUEST_FILENAME} !-f
+#RewriteCond %{REQUEST_FILENAME} !-d
+#RewriteRule . /backend/web/index.php
