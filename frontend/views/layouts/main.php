@@ -56,7 +56,7 @@ AppAsset::register($this);
         //'brandLabel' => '<img src="../../frontend/web/img/logotype50.png" style="display:inline; margin-top: 0px; vertical-align: top; height: 32px;">',
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
-            'class' => 'navbar navbar-inverse navbar-fixed-top',
+            'class' => 'navbar navbar-default',
             'style' => 'margin: 0px; padding: 0px; ' //Задаем принудительно стили
         ],
     ]);

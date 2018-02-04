@@ -1,8 +1,8 @@
 /* ШРИФТЫ */
 h1.slederfon /*Заголовок разделов основной*/
 {
-    font-family: bebas_neue;
-    font-size: 36pt;
+    /*font-family: bebas_neue;
+    */font-size: 60pt;
     padding-bottom: 40px;
     color: #fff;
 }
@@ -25,7 +25,7 @@ h2.sliderfon	/*Заголовок расшифровка под разделам
     background-attachment: fixed;
     background-position: center center;
     /*border-top: 1px solid #e4e4e4;*/
-    height: 100vh;
+    height: 94vh;
     text-align: center;
     vertical-align: bottom;
     display: flex;
@@ -35,5 +35,16 @@ h2.sliderfon	/*Заголовок расшифровка под разделам
 /*    width: 100px;*/
     margin: auto;
 }
+
+/* Эффекты изабражений*/
+img.rev{
+    -webkit-box-shadow: 0 2px 3px rgba(0,0,0,.4);
+    -moz-box-shadow: 0 2px 3px rgba(0,0,0,.4);
+    box-shadow: 0 2px 3px rgba(0,0,0,.4);}
+
+img.rev:hover{
+    -webkit-box-shadow: 0 3px 5px rgba(0,0,0,.6);
+    -moz-box-shadow: 0 3px 5px rgba(0,0,0,.6);
+    box-shadow: 0 3px 5px rgba(0,0,0,.6);}
 
 

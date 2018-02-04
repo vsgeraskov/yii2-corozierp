@@ -2,52 +2,10 @@
 
 /* @var $this yii\web\View */
 
-use yii\bootstrap\Carousel;
-
-$this->registerCssFile('/frontend/web/css/font.css');
-$this->registerCssFile('/frontend/web/css/sitemain.css');
-
-//Скриптик отложенной загрузки изображения
-$this->registerJsFile('@web/js/layzr.js');
-
 $this->title = 'ООО Корози, Компания Промышленного Сервиса г.Пермь, антикоррозионная защита, промышленная очистка, ремонт и восстановление бетонов, теплоизоляция';
 ?>
 
 <div class="site-index" style="padding: 0px; margin: auto 0px;">
-    <?php /*
-    $carousel = [
-        [
-            'content' => '<img src="../../frontend/web/img/slider/004.jpg"/>',
-            'caption' => '<h1>Заголовок</h1><p>Какой-то дополнительный текст</p><p><a href="/article/link/1" class="btn btn-primary">Подробнее <span class="glyphicon glyphicon-chevron-right"></a></p>',
-            'options' => ['class' => 'img-fluid']
-        ],
-        [
-            'content' => '<img src="../../frontend/web/img/slider/003.jpg"/>',
-            'caption' => '',
-            'options' => ['class' => 'img-fluid']
-        ],
-        [
-            'content' => '<img src="../../frontend/web/img/slider/002.jpg"/>',
-            'caption' => '',
-            'options' => ['class' => 'img-fluid']
-        ],
-        [
-            'content' => '<img src="../../frontend/web/img/slider/001.jpg"/>',
-            'caption' => '<h1 style="font-size: 65pt;">Заголовок</h1><p>Какой-то дополнительный текст</p><p><a href="/article/link/1" class="btn btn-primary">Подробнее <span class="glyphicon glyphicon-chevron-right"></a></p>',
-            'options' => ['class' => 'img-fluid']
-        ]
-    ];
-
-    echo Carousel::widget([
-        'items' => $carousel,
-        'options' => ['class' => 'carousel slide', 'data-interval' => '12000'],
-        'controls' => [
-            '<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>',
-            '<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>'
-        ]
-    ]);*/
-    ?>
-
     <div class="indextopslide" style="background: url(/frontend/web/img/slider/fonindex.jpg) no-repeat; background-size: cover; background-position: center center;">
         <div class="container inner">
             <h1 class="slederfon">
@@ -63,20 +21,20 @@ $this->title = 'ООО Корози, Компания Промышленного
     <div class="jumbotron container">
         <table  width="100%" align="center">
             <tr>
-                <td align="center" valign="middle" style="padding:30px;"><img data-layzr="../img/zagriv.png" alt=""  width="70px"></td>
+                <td align="center" valign="middle" style="padding:30px;"><img src="../../frontend/web/img/zagriv.png" alt=""  width="70px"></td>
             </tr>
         </table>
 
         <table width="100%" align="center">
             <tr>
-                <td align="center" valign="middle" style="padding:0px;">
-                    <img data-layzr="../img/zagrivleft.png" alt="" height="35px"><span style="color:black;padding-left: 1px; padding-top: 15px; font-family: HelveticaNeueCyrUltraLight, arial; font-weight: 500; font-size: 32pt;line-height: 1.2; opacity:0.75;">&nbsp;&nbsp;&nbsp;НАМ ДОВЕРЯЮТ&nbsp;&nbsp;&nbsp;</span><img data-layzr="../img/zagrivright.png" alt="" height="35px"></td>
+                <td align="center" valign="middle" style="padding:0px; text-align: center; vertical-align: middle;">
+                    <img src="../../frontend/web/img/zagrivleft.png" alt="" height="35px"><span style="color:black; padding-left: 1px; font-family: HelveticaNeueCyrUltraLight, arial; font-weight: 500; font-size: 34pt; line-height: 1.2; opacity:0.75; vertical-align: middle;">&nbsp;&nbsp;&nbsp;НАМ ДОВЕРЯЮТ&nbsp;&nbsp;&nbsp;</span><img src="../../frontend/web/img/zagrivright.png" alt="" height="35px"></td>
             </tr>
             <tr>
                 <td align="center" style="padding:20px;">
                   <?php
                        //вывод изображений из папки закидывай просто картинки в папку
-                    $dir = '../../frontend/web/img/logo/'; // Папка с изображениями
+                    $dir = '../../frontend/web/img/logo/'; // Папка с изображениями логотипы компаний
                     $cols = 8; // Количество столбцов в будущей таблице с картинками
                     $files = scandir($dir); // Берём всё содержимое директории
                     echo "<table align='center' width='100%'>"; // Начинаем таблицу
@@ -100,17 +58,18 @@ $this->title = 'ООО Корози, Компания Промышленного
                  </td>
             </tr>
             <tr>
-                <td align="center" style="padding-top:55px;"><img data-layzr="../img/zagrivleft.png" alt="" height="35px"><span style="color:black;padding-left: 1px; padding-top: 15px; font-family: HelveticaNeueCyrUltraLight; font-weight: 500; font-size: 32pt;line-height: 1.2; opacity:0.75;">&nbsp;&nbsp;&nbsp;О НАС ГОВОРЯТ&nbsp;&nbsp;&nbsp;</span><img data-layzr="../img/zagrivright.png" alt="" height="35px"></td>
+                <td align="center" style="padding-top:55px;">
+                    <img src="../../frontend/web/img/zagrivleft.png" alt="" height="35px"><span style="color:black;padding-left: 1px; padding-top: 15px; font-family: HelveticaNeueCyrUltraLight; font-weight: 500; font-size: 32pt;line-height: 1.2; opacity:0.75; vertical-align: middle;">&nbsp;&nbsp;&nbsp;О НАС ГОВОРЯТ&nbsp;&nbsp;&nbsp;</span><img src="../../frontend/web/img/zagrivright.png" alt="" height="35px"></td>
             </tr>
             <tr>
                 <td align="center" style="padding:20px;">
                     <!-- выведем немного отзывов -->
                     <table style="table-layout: fixed; width:100%;">
                         <tr>
-                            <td style='padding:15px;'><a href="review.php"><img data-layzr="../img/review/20150115lkmsnab.jpg" alt="" width="270px" class="rev"></a></td>
-                            <td style='padding:15px;'><a href="review.php"><img data-layzr="../img/review/20141209tatspecenorgo.jpg" alt="" width="270px" class="rev"></a></td>
-                            <td style='padding:15px;'><a href="review.php"><img data-layzr="../img/review/20131024wsk.jpg" alt="" width="270px" class="rev"></a></td>
-                            <td style='padding:15px;'><a href="review.php"><img data-layzr="../img/review/20141002metafrax.jpg" alt="" width="270px" class="rev"></a></td>
+                            <td style='padding:15px;'><a href="review.php"><img src="../../frontend/web/img/review/20150115lkmsnab.jpg" alt="" width="270px" class="rev"></a></td>
+                            <td style='padding:15px;'><a href="review.php"><img src="../../frontend/web/img/review/20141209tatspecenorgo.jpg" alt="" width="270px" class="rev"></a></td>
+                            <td style='padding:15px;'><a href="review.php"><img src="../../frontend/web/img/review/20131024wsk.jpg" alt="" width="270px" class="rev"></a></td>
+                            <td style='padding:15px;'><a href="review.php"><img src="../../frontend/web/img/review/20141002metafrax.jpg" alt="" width="270px" class="rev"></a></td>
                         </tr>
                     </table>
                 </td>
@@ -161,8 +120,3 @@ $this->title = 'ООО Корози, Компания Промышленного
 
     </div>
 </div>
-
-<!--активация отложенного изображения-->
-<script type="text/javascript">
-    var layzr = new Layzr();
-</script>
