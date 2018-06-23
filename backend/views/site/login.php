@@ -6,7 +6,7 @@ use yii\bootstrap\ActiveForm;
 /* @var $form yii\bootstrap\ActiveForm */
 /* @var $model \common\models\LoginForm */
 
-$this->title = 'Вход';
+$this->title = 'Вход в систему';
 
 $fieldOptions1 = [
     'options' => ['class' => 'form-group has-feedback'],
@@ -21,7 +21,10 @@ $fieldOptions2 = [
 
 <div class="login-box">
     <div class="login-logo">
-        <a href="#"><b>УКЕ</b>LTE</a>
+       <!--<div style="vertical-align: middle;">
+           <img src="../img/icon/logotype50.png">
+           <span style="font-size: 16pt; font-family: 'HelveticaNeueCyrUltraLight';">УПРАВЛЕНИЕ ПРОЕКТАМИ</span>
+       </div>-->
     </div>
     <!-- /.login-logo -->
     <div class="login-box-body">
@@ -52,19 +55,19 @@ $fieldOptions2 = [
 
 
         <?php ActiveForm::end(); ?>
+<!--
+                <div class="social-auth-links text-center">
+                    <p>- OR -</p>
+                    <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign in
+                        using Facebook</a>
+                    <a href="#" class="btn btn-block btn-social btn-google-plus btn-flat"><i class="fa fa-google-plus"></i> Sign
+                        in using Google+</a>
+                </div>-->
+                <!-- /.social-auth-links -->
 
-        <!--<div class="social-auth-links text-center">
-            <p>- OR -</p>
-            <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign in
-                using Facebook</a>
-            <a href="#" class="btn btn-block btn-social btn-google-plus btn-flat"><i class="fa fa-google-plus"></i> Sign
-                in using Google+</a>
-        </div>
-        <!-- /.social-auth-links -->
+                <a href="#">Забыли пароль? </a><br>
+               <!-- <a href="register.html" class="text-center">Регистрация нового пользователя</a>-->
 
-       <!-- <a href="#">I forgot my password</a><br>
-        <a href="register.html" class="text-center">Register a new membership</a>
-
-    </div>-->
+    </div>
     <!-- /.login-box-body -->
 </div><!-- /.login-box -->

@@ -7,6 +7,8 @@ $params = array_merge(
 );
 
 return [
+    'name' => 'КОРОЗИ',
+    'language' => 'ru-RU',
     'id' => 'app-backend',
     'basePath' => dirname(__DIR__),
     'controllerNamespace' => 'backend\controllers',
@@ -19,11 +21,16 @@ return [
     'components' => [
         'authManager' => [
             'class' => 'yii\rbac\DbManager', // or use 'yii\rbac\PhpManager'
+            //'cache' => 'cache'
         ],
+        /*'cache' => [
+            'class' => 'yii\caching\FileCache',
+        ],*/
         'view' => [
             'theme' => [
                 'pathMap' => [
-                    '@app/views' => '@vendor/dmstr/yii2-adminlte-asset/example-views/yiisoft/yii2-app'
+                    //'@app/views' => '@vendor/dmstr/yii2-adminlte-asset/example-views/yiisoft/yii2-app'   //стандартный шаблон
+                    '@app/views' => '@app/views'  //виды редактируем
                 ],
             ],
         ],

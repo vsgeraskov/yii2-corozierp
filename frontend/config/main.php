@@ -7,9 +7,10 @@ $params = array_merge(
 );
 
 return [
+    'language' => 'ru-RU',
     'id' => 'app-frontend',
     'name' => 'ООО Корози',
-    'homeUrl' => '',
+    'homeUrl' => 'https://www.corozi.ru',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'controllerNamespace' => 'frontend\controllers',
@@ -45,8 +46,28 @@ return [
             'rules' => [
                 //['class' => 'frontend\components\ClassUrlRule'],
                 '' => 'site/index',
-                '<controller:\w+>/<action:\w+>/' => '<controller>/<action>',
+                'defaultRoute' => 'site/index',
+                '<action:\w+>/' => 'site/<action>',
             ],
+        ],
+        'mailer' => [  //Настройка отправки почтовых сообщений
+            'class' => 'yii\swiftmailer\Mailer',
+            //'viewPath' => '@app/mail', //Путь к шаблонам писем
+            //'htmlLayout' => 'layouts/main-html', // Шаблон HTML по умолчанию
+            //'textLayout' => 'layouts/main-text', // Шаблон TXT по умолчанию
+            'messageConfig' => [ //Настройка по умолчанию
+                'charset' => 'UTF-8',
+                'from' => ['sub@corozi.ru' => '[ COROZI.RU ] Корози, Сервисная Компания'], //Обратный адрес по умолчанию
+            ],
+            'useFileTransport' => false,
+            'transport' => [
+                'class' => 'Swift_SmtpTransport',
+                'host' => 'smtp.mail.ru',
+                'username' => 'sub@corozi.ru',
+                'password' => 'RCv+akWe9e5W',
+                'port' => '465',
+                'encryption' => 'ssl',
+],
         ],
     ],
     'params' => $params,

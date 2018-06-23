@@ -14,7 +14,8 @@ class AppAsset extends AssetBundle
     public $css = [
         'css/site.css',
         'css/sitemain.css',
-        'css/font.css'
+        'css/font.css',
+        'css/callbackbottom.css', //Стили для обратного звонка
     ];
 
     public $js = [

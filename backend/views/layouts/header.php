@@ -3,16 +3,20 @@ use yii\helpers\Html;
 
 /* @var $this \yii\web\View */
 /* @var $content string */
+
+$session = Yii::$app->session;
+$session->open();
+
 ?>
 
 <header class="main-header">
 
-    <?= Html::a('<span class="logo-mini">APP</span><span class="logo-lg">' . Yii::$app->name . '</span>', Yii::$app->homeUrl, ['class' => 'logo']) ?>
+    <?= Html::a('<span class="logo-mini">СК</span><span class="logo-lg">' . Yii::$app->name . '</span>', Yii::$app->homeUrl, ['class' => 'logo']) ?>
 
     <nav class="navbar navbar-static-top" role="navigation">
 
         <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
-            <span class="sr-only">Toggle navigation</span>
+            <span class="sr-only">Переключить навигацию</span>
         </a>
 
         <div class="navbar-custom-menu">
@@ -26,7 +30,7 @@ use yii\helpers\Html;
                         <span class="label label-success">4</span>
                     </a>
                     <ul class="dropdown-menu">
-                        <li class="header">You have 4 messages</li>
+                        <li class="header">У Вас 4 сообщения</li>
                         <li>
                             <!-- inner menu: contains the actual data -->
                             <ul class="menu">
@@ -98,16 +102,17 @@ use yii\helpers\Html;
                                 </li>
                             </ul>
                         </li>
-                        <li class="footer"><a href="#">See All Messages</a></li>
+                        <li class="footer"><a href="#">Посмотреть все</a></li>
                     </ul>
                 </li>
+
                 <li class="dropdown notifications-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <i class="fa fa-bell-o"></i>
                         <span class="label label-warning">10</span>
                     </a>
                     <ul class="dropdown-menu">
-                        <li class="header">You have 10 notifications</li>
+                        <li class="header">У вас 10 уведомлений</li>
                         <li>
                             <!-- inner menu: contains the actual data -->
                             <ul class="menu">
@@ -230,21 +235,33 @@ use yii\helpers\Html;
                 <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <img src="<?= $directoryAsset ?>/img/user2-160x160.jpg" class="user-image" alt="User Image"/>
-                        <span class="hidden-xs">Alexander Pierce</span>
+                        <span class="hidden-xs">
+                            <?= $session->get('fio'); ?>
+                        </span>
                     </a>
                     <ul class="dropdown-menu">
                         <!-- User image -->
-                        <li class="user-header">
-                            <img src="<?= $directoryAsset ?>/img/user2-160x160.jpg" class="img-circle"
-                                 alt="User Image"/>
+                        <li class="user-header" style="height: 110px;">
+                           <table style="margin: 5px;">
+                               <tr>
+                                   <td>
+                                       <img src="<?= $directoryAsset ?>/img/user2-160x160.jpg" class="img-circle" alt="User Image" width="80px"/>
+                                   </td>
+                                   <td style="padding-left: 15px;">
+                                     <p style="color: #ffffff; text-align: left;">
+                                         <strong><?= Yii::$app->session->get('fio'); ?></strong>
+                                         <br>
+                                         <small>Руководитель проектов</small>
+                                         <br>
+                                         <!--<small>на сайте с 01.05.18</small>-->
+                                     </p>
+                                   </td>
+                               </tr>
+                           </table>
 
-                            <p>
-                                Alexander Pierce - Web Developer
-                                <small>Member since Nov. 2012</small>
-                            </p>
                         </li>
                         <!-- Menu Body -->
-                        <li class="user-body">
+                        <!--<li class="user-body">
                             <div class="col-xs-4 text-center">
                                 <a href="#">Followers</a>
                             </div>
@@ -254,17 +271,21 @@ use yii\helpers\Html;
                             <div class="col-xs-4 text-center">
                                 <a href="#">Friends</a>
                             </div>
-                        </li>
+                        </li>-->
                         <!-- Menu Footer-->
                         <li class="user-footer">
                             <div class="pull-left">
-                                <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                <?/*= Html::a(
+                                    'Мой профиль',
+                                    ['/people/peopleview'],
+                                    ['class' => 'btn btn-primary btn-sm']
+                                ) */?>
                             </div>
                             <div class="pull-right">
                                 <?= Html::a(
-                                    'Sign out',
-                                    ['/site/logout'],
-                                    ['data-method' => 'post', 'class' => 'btn btn-default btn-flat']
+                                    'Мой профиль',
+                                    ['/people/peopleview'],
+                                    ['class' => 'btn btn-primary btn-sm']
                                 ) ?>
                             </div>
                         </li>
@@ -275,7 +296,26 @@ use yii\helpers\Html;
                 <li>
                     <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
                 </li>
+                <li>
+                    <?= Html::a(
+                        '',
+                        ['/help/'],
+                        ['data-method' => 'post', 'class' => 'fa fa-book', 'title' => 'Раздел помощи']
+                    ) ?>
+                </li>
+
+                <li>
+                    <?= Html::a(
+                        '',
+                        ['/site/logout'],
+                        ['data-method' => 'post', 'class' => 'fa fa-sign-out', 'title' => 'Выход из программы']
+                    ) ?>
+                </li>
             </ul>
         </div>
     </nav>
 </header>
+
+<?php
+$session->close();
+?>

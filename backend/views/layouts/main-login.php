@@ -6,6 +6,11 @@ use yii\helpers\Html;
 /* @var $content string */
 
 dmstr\web\AdminLteAsset::register($this);
+
+/* Подключение прогрессбара */
+use phpnt\pace\PaceAsset;
+PaceAsset::register($this);
+
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -17,9 +22,17 @@ dmstr\web\AdminLteAsset::register($this);
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
 </head>
-<body class="login-page">
+<body class="login-page" style="background-image: url('../img/loginfon.jpg'); background-position: center; background-repeat: no-repeat; background-size: cover; ">
 
 <?php $this->beginBody() ?>
+
+<!--Прогрессбар загрузки страницы-->
+<div class="pace pace-inactive" style="width: 100%;">
+    <div class="pace-progress" data-progress-text="100%" data-progress="99">
+        <div class="pace-progress-inner"></div>
+    </div>
+    <div class="pace-activity"></div>
+</div>
 
     <?= $content ?>
 

@@ -4,8 +4,11 @@ use yii\helpers\Html;
 /* @var $this \yii\web\View */
 /* @var $content string */
 
+/* Подключение прогрессбара */
+use phpnt\pace\PaceAsset;
+PaceAsset::register($this);
 
-if (Yii::$app->controller->action->id === 'login') { 
+if (Yii::$app->controller->action->id === 'login') {
 /**
  * Do not use this code in your template. Remove it. 
  * Instead, use the code  $this->layout = '//main-login'; in your controller.
@@ -25,8 +28,11 @@ if (Yii::$app->controller->action->id === 'login') {
     dmstr\web\AdminLteAsset::register($this);
 
     $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@vendor/almasaeed2010/adminlte/dist');
+
     ?>
+
     <?php $this->beginPage() ?>
+
     <!DOCTYPE html>
     <html lang="<?= Yii::$app->language ?>">
     <head>
@@ -36,8 +42,18 @@ if (Yii::$app->controller->action->id === 'login') {
         <title><?= Html::encode($this->title) ?></title>
         <?php $this->head() ?>
     </head>
+
     <body class="hold-transition skin-blue sidebar-mini">
     <?php $this->beginBody() ?>
+
+    <!--Прогрессбар загрузки страницы-->
+    <div class="pace pace-inactive" style="width: 100%;">
+        <div class="pace-progress" data-progress-text="100%" data-progress="99">
+            <div class="pace-progress-inner"></div>
+        </div>
+        <div class="pace-activity"></div>
+    </div>
+
     <div class="wrapper">
 
         <?= $this->render(

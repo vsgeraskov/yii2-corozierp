@@ -22,11 +22,17 @@ class PasswordResetRequestForm extends Model
             ['email', 'trim'],
             ['email', 'required'],
             ['email', 'email'],
-            ['email', 'exist',
+                ['email', 'exist',
                 'targetClass' => '\common\models\User',
                 'filter' => ['status' => User::STATUS_ACTIVE],
-                'message' => 'There is no user with this email address.'
+                'message' => 'Адрес отсутствует в базе или доступ заблокирован'
             ],
+        ];
+    }
+
+    public function attributeLabels() {
+        return [
+            'password' => 'Новый пароль',
         ];
     }
 
@@ -56,13 +62,10 @@ class PasswordResetRequestForm extends Model
 
         return Yii::$app
             ->mailer
-            ->compose(
-                ['html' => 'passwordResetToken-html', 'text' => 'passwordResetToken-text'],
-                ['user' => $user]
-            )
-            ->setFrom([Yii::$app->params['supportEmail'] => Yii::$app->name . ' robot'])
+            ->compose('passwordReset',['user' => $user])
+            ->setFrom(['sub@corozi.ru' => '[ COROZI.RU ] Корози, Сервисная Компания'])
             ->setTo($this->email)
-            ->setSubject('Password reset for ' . Yii::$app->name)
+            ->setSubject('Восстановление пароля для '.$this->email)
             ->send();
     }
 }

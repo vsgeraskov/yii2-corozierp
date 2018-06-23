@@ -3,9 +3,10 @@
 /* @var $this yii\web\View */
 
 $this->title = 'ООО Корози, Компания Промышленного Сервиса г.Пермь, антикоррозионная защита, промышленная очистка, ремонт и восстановление бетонов, теплоизоляция';
+
 ?>
 
-<div class="site-index" style="padding: 0px; margin: auto 0px;">
+<div class="site-index">
     <div class="indextopslide" style="background: url(/frontend/web/img/slider/fonindex.jpg) no-repeat; background-size: cover; background-position: center center;">
         <div class="container inner">
             <h1 class="slederfon">
@@ -49,7 +50,7 @@ $this->title = 'ООО Корози, Компания Промышленного
                             /* Закрываем строку, если необходимое количество было выведено, либо данная итерация последняя */
                             /*    if ((($k + 1) % $cols == 0) || (($i + 1) == count($files)))
                                   $k++; // Увеличиваем вспомогательный счётчик*/
-                        }
+                       }
                     }
                     echo "</td>"; // Закрываем столбец
                     echo "</tr>";
@@ -66,57 +67,15 @@ $this->title = 'ООО Корози, Компания Промышленного
                     <!-- выведем немного отзывов -->
                     <table style="table-layout: fixed; width:100%;">
                         <tr>
-                            <td style='padding:15px;'><a href="review.php"><img src="../../frontend/web/img/review/20150115lkmsnab.jpg" alt="" width="270px" class="rev"></a></td>
-                            <td style='padding:15px;'><a href="review.php"><img src="../../frontend/web/img/review/20141209tatspecenorgo.jpg" alt="" width="270px" class="rev"></a></td>
-                            <td style='padding:15px;'><a href="review.php"><img src="../../frontend/web/img/review/20131024wsk.jpg" alt="" width="270px" class="rev"></a></td>
-                            <td style='padding:15px;'><a href="review.php"><img src="../../frontend/web/img/review/20141002metafrax.jpg" alt="" width="270px" class="rev"></a></td>
+                            <td style='padding:15px; text-align: center;'><a href="<?= \yii\helpers\Url::to(['/review']) ?>"><img src="../../frontend/web/img/review/20150115lkmsnab.jpg" alt="" width="210px" class="rev"></a></td>
+                            <td style='padding:15px; text-align: center;'><a href="<?= \yii\helpers\Url::to(['/review']) ?>"><img src="../../frontend/web/img/review/20141209tatspecenorgo.jpg" alt="" width="210px" class="rev"></a></td>
+                            <td style='padding:15px; text-align: center;'><a href="<?= \yii\helpers\Url::to(['/review']) ?>"><img src="../../frontend/web/img/review/20131024wsk.jpg" alt="" width="210px" class="rev"></a></td>
+                            <td style='padding:15px; text-align: center;'><a href="<?= \yii\helpers\Url::to(['/review']) ?>"><img src="../../frontend/web/img/review/20141002metafrax.jpg" alt="" width="210px" class="rev"></a></td>
                         </tr>
                     </table>
                 </td>
             </tr>
         </table>
-
-        <h1>Поздравляем</h1>
-
-        <p class="lead">You have successfully created your Yii-powered application.</p>
-
-        <p><a class="btn btn-lg btn-success" href="http://www.yiiframework.com">Get started with Yii</a></p>
-    </div>
-
-    <div class="body-content container">
-
-        <div class="row">
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/doc/">Yii Documentation &raquo;</a></p>
-            </div>
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/forum/">Yii Forum &raquo;</a></p>
-            </div>
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/extensions/">Yii Extensions &raquo;</a></p>
-            </div>
-        </div>
 
     </div>
 </div>

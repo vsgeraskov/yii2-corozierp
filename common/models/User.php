@@ -51,13 +51,14 @@ class User extends ActiveRecord implements IdentityInterface
     public function rules()
     {
         return [
-            ['status', 'default', 'value' => self::STATUS_ACTIVE],
+            ['status', 'default', 'value' => self::STATUS_DELETED], //Статус по умолчанию, не активен или удален
             ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED]],
         ];
     }
 
     /**
      * @inheritdoc
+     * Функция поиска активного пользователя с заданым ID
      */
     public static function findIdentity($id)
     {
@@ -74,7 +75,7 @@ class User extends ActiveRecord implements IdentityInterface
 
     /**
      * Finds user by username
-     *
+     * Поиск пользователя по имени пользователя
      * @param string $username
      * @return static|null
      */
@@ -85,7 +86,7 @@ class User extends ActiveRecord implements IdentityInterface
 
     /**
      * Finds user by password reset token
-     *
+     * Поиск пользователя по сброшеному токену
      * @param string $token password reset token
      * @return static|null
      */
@@ -98,6 +99,14 @@ class User extends ActiveRecord implements IdentityInterface
         return static::findOne([
             'password_reset_token' => $token,
             'status' => self::STATUS_ACTIVE,
+        ]);
+    }
+
+    public static function findByAuthKey($key)
+    {
+        return static::findOne([
+            'auth_key' => $key,
+            'status' => self::STATUS_DELETED,
         ]);
     }
 
@@ -120,6 +129,7 @@ class User extends ActiveRecord implements IdentityInterface
 
     /**
      * @inheritdoc
+     * Получить ID пользователя (делается через PrimaryKey)
      */
     public function getId()
     {
@@ -186,4 +196,14 @@ class User extends ActiveRecord implements IdentityInterface
     {
         $this->password_reset_token = null;
     }
+
+    /**
+     * Обнуление Auth_Key
+     */
+
+    public function removeAuthKey()
+    {
+        $this->auth_key = null;
+    }
+
 }

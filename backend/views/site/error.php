@@ -11,24 +11,26 @@ $this->title = $name;
 ?>
 <section class="content">
 
-    <div class="error-page">
-        <h2 class="headline text-info"><i class="fa fa-warning text-yellow"></i></h2>
+    <div class="error-page" style="padding-top: 150px;  ">
+        <h2 class="headline text-info">
+
+            <i class="fa fa-warning text-yellow"></i>
+
+        </h2>
 
         <div class="error-content">
             <h3><?= $name ?></h3>
-
             <p>
                 <?= nl2br(Html::encode($message)) ?>
             </p>
 
             <p>
-                The above error occurred while the Web server was processing your request.
-                Please contact us if you think this is a server error. Thank you.
-                Meanwhile, you may <a href='<?= Yii::$app->homeUrl ?>'>return to dashboard</a> or try using the search
-                form.
+                Упс. кажется Вы зашли туда куда не стоило заглядывать или сделали то чего не следовало. Если у Вас иное мнение, пожалуйста, сообщите нам. Мы всегода готовы исправить ошибку.
+                Зипишите все шаги подробно, для того чтобы мы могли воспроизвести настоящую ошибку.
+                <br><br> Ну а пока можете вернуться <a href='<?= Yii::$app->homeUrl ?>'>на главную страницу</a>
             </p>
 
-            <form class='search-form'>
+            <!--<form class='search-form'>
                 <div class='input-group'>
                     <input type="text" name="search" class='form-control' placeholder="Search"/>
 
@@ -37,7 +39,7 @@ $this->title = $name;
                         </button>
                     </div>
                 </div>
-            </form>
+            </form>-->
         </div>
     </div>
 

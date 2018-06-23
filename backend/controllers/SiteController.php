@@ -26,7 +26,7 @@ class SiteController extends Controller
                         'allow' => true,
                     ],
                     [
-                        'actions' => ['logout', 'index', 'error'],
+                        'actions' => ['logout', 'index', 'error','profiluser'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -60,6 +60,43 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
+        //Запишем в куке основные параметры пользователя и переменные входва в систему
+        if($namepeople = \app\models\People::findOne(['id_user' => Yii::$app->user->id] ))
+        {
+
+            $session = Yii::$app->session; //Переменная сессии
+            $session->open(); //Открыть сессию
+
+            $fio = $namepeople -> surname . " " . $namepeople -> name . " " . $namepeople -> middle_name;
+            $io = $namepeople -> name . " " . $namepeople -> middle_name;
+            $name = $namepeople -> surname . " " .mb_substr($namepeople->name,0,1,'UTF-8').".".mb_substr($namepeople->middle_name,0,1,'UTF-8').".";
+
+            $session->set('userpeopleid', $namepeople -> id_user);
+            $session->set('fio', $fio);
+            $session->set('io', $io);
+            $session->set('name', $name);
+            $session->set('username', Yii::$app->user->identity->username);
+            $session->set('userid', Yii::$app->user->id);
+
+            $session->close();
+
+         }
+        else
+            {
+                $session = Yii::$app->session; //Переменная сессии
+                $session->open(); //Открыть сессию
+
+                 $session->set('userpeopleid', '0');
+                $session->set('fio', Yii::$app->user->identity->username);
+                $session->set('io', Yii::$app->user->identity->username);
+                $session->set('username', Yii::$app->user->identity->username);
+                $session->set('name', Yii::$app->user->identity->username);
+                $session->set('userid', Yii::$app->user->id);
+
+                $session->close();
+
+            }
+
         return $this->render('index');
     }
 
@@ -91,7 +128,10 @@ class SiteController extends Controller
      */
     public function actionLogout()
     {
+        //Удаляем куки
+        Yii::$app->response->cookies->remove('fio');
         Yii::$app->user->logout();
+
 
         return $this->goHome();
     }

@@ -1,8 +1,19 @@
+/* Оформление ссылок */
+a.bottommenu {
+    text-decoration: none; /* Убираем подчеркивание у ссылок */
+    color: #313131;
+}
+
+a.bottommenu:hover {
+    text-decoration: none;
+    color: #000000;
+}
+
 /* ШРИФТЫ */
 h1.slederfon /*Заголовок разделов основной*/
 {
-    /*font-family: bebas_neue;
-    */font-size: 60pt;
+    font-family: bebas_neue;
+    font-size: 32pt;
     padding-bottom: 40px;
     color: #fff;
 }
@@ -13,6 +24,26 @@ h2.sliderfon	/*Заголовок расшифровка под разделам
     font-size: 20pt;
     padding-bottom: 20px;
     color: #fff;
+}
+
+h2.uslugi  /* Шрифт для описания услуг */
+{
+    font-family: bebas_neue;
+    font-size:16pt;
+    font-weight: normal;
+}
+
+h3.razdel {
+    font-family: bebas_neue;
+    font-size:16pt;
+    font-weight: normal;
+}
+
+span.textusluga {
+    font-family: MagistralC;
+    font-size:11pt;
+    font-weight: normal;
+    text-align:justify;
 }
 
 /*фоновое для шапки сайта*/
@@ -47,4 +78,8 @@ img.rev:hover{
     -moz-box-shadow: 0 3px 5px rgba(0,0,0,.6);
     box-shadow: 0 3px 5px rgba(0,0,0,.6);}
 
-
+div.shadow {
+    background: #ffffff; /* Цвет фона */
+    box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Параметры тени */
+    padding: 10px;
+}
